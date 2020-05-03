@@ -7,7 +7,7 @@ from .forms import ContactForm
 def contact(request):
     # Instaciamos un nuevo formulario vacío
     contact_form = ContactForm()
-    # Verificamos que el formulario envia un POST
+    # Verificamos que el formulario envía un POST
     if request.method == 'POST':
         # Procesamos el formulario guardando un diccionario data en el objecto contact_form
         contact_form = ContactForm(data=request.POST)

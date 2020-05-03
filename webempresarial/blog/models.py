@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Nombre')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
-    updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de modificación')
+    name = models.CharField(verbose_name='Nombre', max_length=100)
+    created = models.DateTimeField(verbose_name='Fecha de creación', auto_now_add=True)
+    updated = models.DateTimeField(verbose_name='Fecha de modificación', auto_now=True)
 
     class Meta:
         verbose_name = 'categoría'
@@ -18,14 +18,14 @@ class Category(models.Model):
         return self.name
 
 class Post(models.Model):
-    title = models.CharField(max_length=100, verbose_name='Título')
+    title = models.CharField(verbose_name='Título', max_length=100)
     content = models.TextField(verbose_name='Contenido')
     published = models.DateTimeField(verbose_name='Fecha de publicación', default=now)
     image = models.ImageField(verbose_name='Imagen', upload_to='blog', null='True', blank='True')
     author = models.ForeignKey(User, verbose_name='Autor', on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category, verbose_name='Categorías', related_name='get_posts')
-    created = models.DateTimeField(auto_now_add='True', verbose_name='Fecha de creación')
-    updated = models.DateTimeField(auto_now='True', verbose_name='Fecha de modificación')
+    created = models.DateTimeField(verbose_name='Fecha de creación', auto_now_add='True')
+    updated = models.DateTimeField(verbose_name='Fecha de modificación', auto_now='True')
 
     class Meta:
         verbose_name = 'publicación'

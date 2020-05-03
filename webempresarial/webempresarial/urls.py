@@ -35,3 +35,9 @@ urlpatterns = [
 if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Personalizar el título del panel de adminsitrador
+
+admin.site.site_header = 'La Caffetiera - Panel del Administrador'
+#admin.site.index_title = '' # Cambia 'Sitio administrativo'
+admin.site.site_title = 'La Caffetiera'

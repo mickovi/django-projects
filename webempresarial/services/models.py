@@ -3,12 +3,12 @@ from django.db import models
 # Create your models here.
 
 class Service(models.Model):
-    title = models.CharField(max_length=50, verbose_name='Título')
-    subtitle = models.CharField(max_length=50, verbose_name='Subtítulo')
+    title = models.CharField(verbose_name='Título', max_length=50)
+    subtitle = models.CharField(verbose_name='Subtítulo', max_length=50)
     content = models.TextField(verbose_name='Contenido')
-    image = models.ImageField(upload_to='services', verbose_name='Imagen')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
-    updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de modificación')
+    image = models.ImageField(verbose_name='Imagen', upload_to='services')
+    created = models.DateTimeField(verbose_name='Fecha de creación', auto_now_add=True)
+    updated = models.DateTimeField(verbose_name='Fecha de modificación', auto_now=True)
 
     class Meta:
         verbose_name='servicio'
@@ -17,4 +17,3 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
-

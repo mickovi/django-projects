@@ -16,7 +16,7 @@
             </h2>
             <div class="section-content">
               <!--{{my_page.content|linebreaks}}-->
-              {{my_page.content|safe}}
+              {{my_page.content|safe}} <!-- con |safe django reconoce el formateo de HTML -->
               {% if user.is_authenticated %}
                   <p><a href="{% url 'admin:pages_pages_change' my_page.id %}">Editar</a></p>
               {% endif %}
